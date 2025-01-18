@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create user page</title>
+    <style>
+        body{
+            background-color: rgb(240, 243, 245);;
+        }
+        #container{
+            width: 40%;
+            height: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;            margin: auto;
+            text-align: center;
+        }
+        img{
+            width: 50%;
+            height: 100px;
+            margin-left: -5px;
+        }
+        #container>div{
+            width: 80%;
+            height: auto;
+            background-color: white;
+            margin: auto;
+            border-radius: 10px;
+            padding: 5px;
+
+        }
+        #header{
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid rgb(134, 132, 132);
+            padding: 0px 0px 3px;
+  
+        }
+        h4{
+            line-height:0px;
+            margin-top: -10px;
+            color: rgb(134, 132, 132);
+        }
+        span{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: rgb(145, 141, 141);
+            color: white;
+            border-radius: 100%;
+            text-align: center;
+            /* line-height: 50px; */
+            /* font-size: 5px;  */
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        input{
+            margin-top: 15px;
+            margin-left: 5px;
+            margin-right: 15px;
+            width: 40%;
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 10px;
+            border:0;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+       form p {
+           text-align: left;
+           /* margin-left: 2px; */
+           margin: 5px 0px 2px 4px;
+           color: rgb(153, 149, 149);
+       }
+        form div{
+           text-align: left;
+           /* margin-left: 2px; */
+           margin: 5px 0px -5px 3px;
+           color: rgb(153, 149, 149);
+          
+        }
+        select{
+            padding: 6px;
+            width: 30%;
+            margin: -1px 3px;  
+            border-radius: 5px;
+        }
+        .gender-container {
+            display: flex;
+            justify-content: space-around; 
+            text-align: center;
+            margin-left: -8px;
+            color: black;
+            
+          
+            
+           
+        }
+        .gender-option {
+            border: 1px solid #ccc;
+            padding: 6px 8px ;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            gap:30px;
+            justify-content: space-between;
+            margin-top: 10px;
+            
+            
+           
+        }
+        .gender-option input {
+           
+            margin: auto;
+            margin-left: 5px;
+           background-color:white;
+           border-radius: 50%;
+           appearance: none;
+           /* width: 2px;
+           height: 2px; */
+        }
+        input[type="radio"]:checked{
+                 background-color: blue;
+                 color: blue;
+                
+        }
+        li,li input{
+            list-style-type: none;
+            width: 95%;
+            margin-left: 3px;
+        }
+        h6:nth-of-type(2) {
+            margin-top: 10px; 
+            color: #6e6c6c;
+            text-align: justify;
+            padding:0px 6px;
+
+
+            
+        }
+        h6:nth-of-type(1) {
+            margin: 14px 0px 0px 4px; 
+            color: #6e6c6c;
+            padding:0px 5px;
+            text-align: justify;
+            
+        }
+        button{
+            width: 40%;
+            background-color: green;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: large;
+            color: azure;
+        }
+      a{
+            text-decoration: none;
+        }
+        button+br+a{
+            font-size: large;
+            color: rgb(55, 55, 194);
+        }
+        button:hover{
+            cursor: pointer;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" alt="fb">
+        <div>
+             <div id="header">
+                <h1>Create a new account</h1>
+                <h4>it's a quick and easy</h4>
+             </div>
+            <div>
+                <form id="userForm">
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                    <input type="text" id="lastName" placeholder="Surname" required><br><br>
+                    <p>Date of Birth <span>?</span><p>
+                    <select id="day" name="day">
+                        <option value="" disabled>Select day</option>
+                    </select>
+                    <select id="month" name="month">
+                        <option value="" disabled>Select month</option>
+                    </select>
+                    <select id="year" name="year">
+                        <option value="" disabled>Select year</option>
+                    </select>
+
+                    <div >Gender <span>?</span> </div>
+                    <div class="gender-container">
+                        <label class="gender-option">Female
+                          <input type="radio" name="gender" value="female"> 
+                        </label>
+                        <label class="gender-option">Male
+                          <input type="radio" name="gender" value="male"> 
+                        </label>
+                        <label class="gender-option">Custom
+                          <input type="radio" name="gender" value="custom"> 
+                        </label>
+                    </div>
+
+                   
+                    <li><input type="text" id="contactInput" placeholder="Mobile number or email address"></li>
+                    <li><input type="password" id="passwordInput" placeholder="New password"></li>
+                    
+                    
+                    <h6>People who use our service may have uploaded your contact information to Facebook. <a href="#">Learn more</a></h6>
+                     <h6>By clicking Sign Up, you agree to our <a href="#">Terms</a>  <a href="#">Privacy Policy</a> and <a href="#">Cockies Policy</a> You may receive SMS notifications from us and can opt out at any time.</h6>
+                    
+
+                     <button type="submit">Singn Up</button><br>
+                     <a href="loginPage.html">Already have an account?</a>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="./create.js"></script>
