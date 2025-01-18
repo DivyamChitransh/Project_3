@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+
+            .body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 700px;
+            }
+            .posts {
+                background-color: white;
+                width: 90%;
+                border-radius: 12px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+                padding: 16px;
+            }
+            .post-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            .followbtn {
+                background-color: white;
+                color: blue;
+                font-size: 16px;
+                border: none;
+                padding: 10px 10px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: bold;
+                top: 10px;
+                right: 0;
+            }
+            .followbtn:hover {
+                background-color: whitesmoke;
+            }
+
+            .dots {
+                position: relative;
+                cursor: pointer;
+            }
+            .dots i {
+                color: grey;
+                font-size: 24px;
+            }
+
+            .options {
+                position: absolute;
+                top: 30px;
+                color: blue;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                display: none;
+                flex-direction: column;
+                background-color: white;
+                overflow: hidden;
+                min-width: 200px;
+                border-radius: 10px;
+            }
+
+            .options button {
+                display: flex;
+                background: none;
+                align-items: center;
+                border: none;
+                padding: 8px 12px;
+                text-align: left;
+                width: 100%;
+                font-size: 16px;
+                cursor: pointer;
+                gap: 8px;
+            }
+
+            .options button i {
+                color: grey;
+            }
+
+            .options button:hover{
+                background-color: whitesmoke;
+            }
+
+            .dots:hover .options {
+                display: flex;
+            }
+
+            .description {
+                width: 80%;
+                height: 100px;
+                border: none;
+                border-radius: 8px;
+                padding: 10px;
+                font-size: 12px;
+                margin-bottom: 150px;
+                background-color:whitesmoke;
+                color: black;
+            }
+
+            .post-footer {
+                border-top: 1px solid grey;
+                padding-top: 20px;
+            }
+            .actions {
+                display: flex;
+                width: 70%;
+                justify-content: space-between;
+                gap: 4px;
+            }
+            .likebtn {
+                display: flex;
+                align-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: rgb(77, 76, 76);
+                font-size: 36px;
+                border-radius: 8px;
+            }
+            .likebtn.active .likeicon {
+                color: rgb(45, 45, 246)
+            }
+            .commentbtn {
+                display: flex;
+                align-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: rgb(77, 76, 76);
+                font-size: 36px;
+                border-radius: 8px;
+            }
+            .sendbtn {
+                display: flex;
+                align-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: rgb(77, 76, 76);
+                font-size: 36px;
+                border-radius: 8px;
+            }
+
+            .sharebtn {
+                display: flex;
+                align-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: rgb(77, 76, 76);
+                font-size: 36px;
+                border-radius: 8px;
+            }
+
+            .counts {
+                font-size: 32px;
+                color: rgb(79, 77, 77);
+                margin: 12px 0;
+            }
+
+            .commentsection {
+                margin-top: 16px;
+                border-top: 1px solid grey;
+                padding-top: 24px;
+            }
+
+            .comments {
+                max-height: 150px;
+                overflow-y: auto;
+                margin-bottom: 12px;
+            }
+
+            .addcomment {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            #input {
+                padding: 8px;
+                border: 1px solid gray;
+                border-radius: 8px;
+                height: 50px;
+                font-size: 24px;
+                width: 70%;
+            }
+
+            #submitcomment {
+                background-color: rgb(69, 69, 245);
+                color: whitesmoke;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 8px;
+                cursor: pointer;
+                height: 40px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="posts">
+            <div class="post-header">
+                <button class="followbtn">Follow</button>
+                <div class="dots">
+                    <i class="three-dots">...</i>
+                    <div class="options">
+                        <button id="savebtn">
+                            <i class="fas fa-bookmark"></i>Save Post</button>
+                        <button id="hidebtn">
+                        <i class="fas fa-times"></i>Hide Post</button>
+                        <button id="deletebtn">
+                        <i class="fas fa-trash-alt"></i>Delete Post</button>
+                    </div>
+                </div>
+            </div>
+
+            <textarea class="description" placeholder="" ></textarea>
+            <div class="post-footer">
+                <div class="actions">
+                <button class="likebtn">
+                    <i class='far fa-thumbs-up likeicon'></i>
+                    <span class="liketxt">Like</span>
+                </button>
+                <button class="commentbtn">
+                    <i class='far fa-comment'></i>
+                    Comment</button>
+                <button class="sendbtn">
+                    <i class='fab fa-whatsapp'></i>Send</button>
+                <button class="sharebtn">
+                    <i class="fa fa-share"></i>Share</button>
+            </div>
+            <div class="counts">
+                <span>Likes: <span id="likecount">0</span></span> |
+                <span>Comments: <span id="commentscount">0</span></span>
+            </div>
+            <div class="commentsection">
+                <div id="container" class="comments"></div>
+                <div class="addcomment">
+                    <input type="text" id="input" placeholder="">
+                    <button id="submitcomment">Post</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const likeBtn = document.querySelector('.likebtn');
+        const likeText = document.querySelector('.liketxt');
+        const likeCount = document.getElementById('likecount');
+        const input = document.getElementById('input');
+        const submitBtn = document.getElementById('submitcomment');
+        const container = document.getElementById('container');
+        const commentsCount = document.getElementById('commentscount');
+        const followBtn = document.querySelector('.followbtn');
+        const sendBtn = document.querySelector('.sendbtn');
+        const shareBtn = document.querySelector('.sharebtn');
+        const saveBtn = document.getElementById('savebtn');
+        const deleteBtn = document.getElementById('deletebtn');
+        const hideBtn = document.getElementById('hidebtn');
+
+        let likeCounter = 0;
+
+        likeBtn.addEventListener('click', () => {
+            const likeIcon = likeBtn.querySelector('.likeicon');
+            if (likeBtn.classList.toggle('active')) {
+                likeCounter++;
+                likeIcon.style.color = 'rgb(45, 45, 246)';
+                likeText.textContent = 'Liked';
+            } else {
+                likeCounter--;
+                likeIcon.style.color = '#606770';
+                likeText.textContent = 'Like';
+            }
+            likeCount.textContent = likeCounter;
+        });
+
+        submitBtn.addEventListener('click', () => {
+            const textComment = input.value.trim();
+            if (textComment) {
+                const comment = document.createElement('div');
+                comment.className = 'comment';
+                comment.textContent = textComment;
+                container.appendChild(comment);
+                input.value = '';
+                updateCommentsCount();
+            }
+        });
+
+        const updateCommentsCount = () => {
+            commentsCount.textContent = container.childElementCount;
+        };
+
+        followBtn.addEventListener('click', () => {
+            if (followBtn.textContent === 'Follow') {
+                followBtn.textContent = 'Following';
+                followBtn.style.color = '#1877f2';
+            } else {
+                followBtn.textContent = 'Follow';
+                followBtn.style.color = 'rgb(45, 45, 246)';
+            }
+        });
+
+        sendBtn.addEventListener('click', () => {
+            alert('WhatsApp Sharing is On!');
+        });
+
+        shareBtn.addEventListener('click', () => {
+            alert("Post has been shared!");
+        });
+
+        saveBtn.addEventListener('click', () => alert('Post Saved!'));
+        deleteBtn.addEventListener('click', () => alert('Post Deleted!'));
+        hideBtn.addEventListener('click', () => alert('Few posts will show from this!'));
+    });
+
+
+    </script>
+</html>
